@@ -1,336 +1,485 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div>
+  <div class="container-fluid">
+    <ul id="wire"></ul>
+  </div>
+  <div class="container">
+    <br>
+    <div id="sharath">
+      <div class="row">
+        <div class="col-8">
+          <h2 style='color:chocolate;font-family:sans-serif;'> Sharath Kumar </h2>
+        </div>
+        <div class="col-4">
+          <button type="button" id="dark-mode-toggle" class="btn btn-md float-right">
+            <img src="/assets/img/moon.svg" alt="Moon Icon" id="moon-icon" class="hidden">
+            <img src="/assets/img/sun.svg" alt="Sun Icon" id="sun-icon">
+          </button>
 
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
+        </div>
+        <!-- <div class="col-1">
+                      <button type="button" class="btn btn-md hire-me" data-toggle="modal"
+                          data-target="#MyModal">Hire Me!</button>
+                  </div> -->
 
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
 
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--french-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3),
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://twitter.com/angular"
-          aria-label="Twitter"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="20"
-            viewBox="0 0 25 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Twitter"
-          >
-            <path
-              d="M8.04524 20C17.3335 20 22.4138 12.3047 22.4138 5.63144C22.4138 5.41287 22.4138 5.19529 22.399 4.97869C23.3874 4.26381 24.2405 3.37867 24.9185 2.3647C23.9969 2.77329 23.0192 3.04112 22.018 3.15923C23.0723 2.52818 23.8613 1.53552 24.2382 0.366057C23.2469 0.954335 22.1624 1.36889 21.0315 1.59182C20.2701 0.782212 19.2631 0.246107 18.1663 0.0664704C17.0695 -0.113166 15.9441 0.0736804 14.9642 0.598096C13.9843 1.12251 13.2046 1.95526 12.7457 2.96748C12.2868 3.9797 12.1742 5.11495 12.4255 6.19756C10.4178 6.09685 8.45366 5.57507 6.66064 4.66609C4.86763 3.75712 3.28579 2.48127 2.01781 0.921344C1.37203 2.03306 1.17424 3.34911 1.46472 4.60154C1.75519 5.85397 2.51208 6.9486 3.58128 7.66257C2.77759 7.63903 1.9914 7.42221 1.28924 7.03049V7.09449C1.28956 8.26041 1.69316 9.39034 2.4316 10.2926C3.17003 11.1949 4.19783 11.8139 5.34067 12.0448C4.59721 12.2476 3.81715 12.2772 3.06045 12.1315C3.38327 13.1348 4.01156 14.0122 4.85746 14.641C5.70337 15.2698 6.72461 15.6185 7.77842 15.6384C6.73139 16.4614 5.53237 17.0699 4.24995 17.4291C2.96753 17.7882 1.62687 17.891 0.304688 17.7316C2.61411 19.2136 5.30121 19.9997 8.04524 19.9961"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
+      <div id="s"> Full Stack Developer </div>
+    </div>
+
+    <div id="MyModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title"> Thank You </h3>
+            <button class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body"> You have made the right choice! </div>
+          <div class="modal-footer">
+            <a style='background: none' href="mailto:sharath.java10@gmail.com"><button class="btn btn-primary"
+                style="border-radius: 5px">Send Me an Email</button></a>
+            <button class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr size="100">
+
+    <blockquote class="blockquote" style="font-size:16px;font-family:sans-serif"> OBJECTIVE : To effectively utilize
+      my skills and qualifications to contribute significantly to an organization where I can pursue and upgrade
+      technology oriented career, as well as long-term growth through relentless pursuit of learning and
+      perfection. </blockquote>
+    <hr>
+
+    <div class="container">
+      <h4 id="Education" class='text-center head1'>EDUCATION</h4>
+      <dl>
+        <dt style='color:burlywood'> Masters in Applied Computer Science<span style="float:right"></span>
+        </dt>
+        <dd>Northwest Missouri State University, Missouri, USA. <span style="float:right">GPA: 3.55/4.00</span>
+        </dd>
+      </dl>
+      <dl>
+        <dt style='color:burlywood'> Bachelor of Technology in Information Technology<span style="float:right"></span>
+        </dt>
+        <dd>J.B. Institute of Engineering and Technology (JBIT), Hyderabad, India.<span style="float:right">Grade:
+            75.43%</span> </dd>
+      </dl>
+
+
+      <hr>
+      <h4 id="Tech-skills" class='text-center head1'>TECHNICAL SKILLS</h4>
+
+      <div class="row">
+        <div class="col-md-4"><strong> Programming Languages:</strong></div>
+        <div class="col-md-8">C, C++, JavaScript, Python, Java</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4"><strong>Databases:</strong></div>
+        <div class="col-md-8"> MongoDB, PostGreSQL, MySQL, Oracle</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4"><strong>Web Technologies:</strong></div>
+        <div class="col-md-8">HTML5, CSS3, JavaScript, JQuery, Ajax </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4"><strong> JavaScript Frameworks & Libraries:</strong></div>
+        <div class="col-md-8"> Angular, Node JS, Express JS, React JS</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4"><strong>Operating Systems:</strong></div>
+        <div class="col-md-8">Windows family, Linux (Ubuntu), Mac</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"><strong>Tools and Frameworks:</strong></div>
+        <div class="col-md-8"> Mongoose, Sequelize, Docker, Kubernetes, JEST, Jenkins, SonarQube</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"><strong>Other Applications:</strong></div>
+        <div class="col-md-8"> VS Code, MS Office, Google tools and apps, Azure, Adobe Photoshop</div>
+      </div>
+
+      <hr>
+
+      <div class="container">
+        <h4 id="Projects" class="text-center head1">PROJECTS</h4>
+        <ul class="nav nav-pills justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="#project1" data-toggle="tab">Project 4</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#project2" data-toggle="tab">Project 3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#project3" data-toggle="tab">Project 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#project4" data-toggle="tab">Project 1</a>
+          </li>
+        </ul>
+        <div class="tab-content py-3">
+          <div class="tab-pane active" id="project1">
+            <dl>
+              <dt> Kaiser Permanente, Pleasanton, CA <span style="float:right">Jul'18 – Present</span>
+                <br>
+                Role: Full Stack Developer
+              </dt>
+              <dd>
+                <br>
+                <ul class="job-duties">
+                  <li>
+                    Involved in the analysis, design, and development and testing phases of Software
+                    resulting in multiple stable releases and more efficient systems.
+                  </li>
+                  <li>
+                    Worked on multiple projects utilizing technologies such as
+                    <strong>Angular</strong>, <strong>React</strong>, <strong>Node JS</strong>, and
+                    <strong>Java Spring Boot</strong>.
+                  </li>
+                  <li>
+                    Built Backend for Frontend (BFF) applications using Core Java concepts along
+                    with <strong>Spring Boot</strong>.
+                  </li>
+                  <li>
+                    Used J2EE concepts like <strong>JSPs</strong>, <strong>servlets</strong>, and
+                    <strong>MVC</strong> architecture.
+                  </li>
+                  <li>
+                    Used <strong>Node JS</strong>, <strong>Express JS</strong>, and <strong>Mongo
+                      DB</strong> along with <strong>Mongoose</strong> to create server-side
+                    applications.
+                  </li>
+                  <li>
+                    Designed and documented <strong>REST/HTTP APIs</strong>, including JSON data
+                    formats and API versioning strategy.
+                  </li>
+                  <li>
+                    Used <strong>React</strong> to create reusable and modular UI components,
+                    enhancing the website's maintainability and scalability.
+                  </li>
+                  <li>
+                    Implemented code splitting and lazy loading techniques with
+                    <strong>webpack</strong> for faster build and optimized package loading.
+                  </li>
+                  <li>
+                    Implemented complex user interfaces and data-driven views with
+                    <strong>Angular's</strong> powerful data binding and template syntax, resulting
+                    in intuitive and efficient user interactions.
+                  </li>
+                  <li>
+                    Utilized <strong>Angular CLI</strong> to efficiently scaffold and manage Angular
+                    projects, optimizing development workflow and project structure.
+                  </li>
+                  <li>
+                    Implemented mobile-first design principles to create websites optimized for
+                    mobile devices, improving user engagement and accessibility.
+                  </li>
+                  <li>
+                    Utilized media queries and flexible layout techniques to build mobile-friendly
+                    web pages that adapt to different screen resolutions.
+                  </li>
+                  <li>
+                    Conducted thorough testing and debugging on multiple mobile devices and browsers
+                    to ensure consistent functionality and visual integrity.
+                  </li>
+                  <li>
+                    Implemented observable-based solutions with <strong>RxJS</strong>, enabling
+                    efficient handling of complex data flows and enabling real-time updates in
+                    Angular projects.
+                  </li>
+                  <li>
+                    Designed and coded customized <strong>React components</strong> to interact with
+                    the backend API and server components.
+                  </li>
+                  <li>
+                    Extensive experience in working with <strong>Redux</strong> as a state
+                    management library for React applications.
+                  </li>
+                  <li>
+                    Proficient in setting up and configuring the <strong>Redux store</strong> to
+                    manage application state effectively.
+                  </li>
+                  <li>
+                    Successfully handled various <strong>ADA</strong> issues across multiple
+                    browsers and devices.
+                  </li>
+                  <li>
+                    Done client-side form validations, generating cookies, validating the user.
+                  </li>
+                  <li>
+                    Used <strong>Adobe Experience Manager (CMS)</strong> to publish content for
+                    different regions, languages, for different environments.
+                  </li>
+                  <li>
+                    Developed applications which can be easily used by visually impaired people
+                    using ADA standards.
+                  </li>
+                  <li>
+                    Developed <strong>Restful-based web services</strong> and used JSON as the
+                    communication for REST mechanism.
+                  </li>
+                  <li>
+                    Developed & Consumed <strong>RESTful Web Services</strong>.
+                  </li>
+                  <li>
+                    Demonstrated expertise in implementing and adhering to the <strong>Web Content
+                      Accessibility Guidelines (WCAG) 2.0 and 2.1</strong> to ensure web
+                    accessibility for all users, including those with disabilities.
+                  </li>
+                  <li>
+                    Extensive experience in testing web applications with various assistive
+                    technologies, such as screen readers, voice recognition software, and
+                    keyboard-only navigation, to validate accessibility compliance.
+                  </li>
+                  <li>
+                    Used <strong>GIT (GitHub)</strong> for version control.
+                  </li>
+                  <li>
+                    Improved the Performance, Availability of an Application’s Database by using
+                    <strong>NoSQL Database such as Mongo DB</strong>.
+                  </li>
+                  <li>
+                    Successfully handled cross-browser compatibility in different browsers like
+                    Safari, Internet Explorer, Firefox, and Chrome.
+                  </li>
+                  <li>
+                    Used <strong>React Router DOM</strong> to manage all the routes to the
+                    application.
+                  </li>
+                  <li>
+                    Responsible for designing <strong>SPAs</strong> with using React as a Library
+                    along with HTML and CSS.
+                  </li>
+                  <li>
+                    Used <strong>Karma</strong> and <strong>Jasmine</strong> for automated tests
+                    along with using Maven and Jenkins for automated tasks.
+                  </li>
+                  <li>
+                    Used Jenkins - <strong>SonarQube</strong> for test coverage and made sure the
+                    coverage is greater than 85% throughout the application.
+                  </li>
+                  <li>
+                    Used <strong>GraphQL</strong> to get data from the backend for some of the
+                    API’s, aka BFF’s.
+                  </li>
+                  <li>
+                    Migrated from <strong>IBM Bluemix</strong> to <strong>Microsoft Azure</strong>
+                    for running the backend Node JS application.
+                  </li>
+                  <li>
+                    Used <strong>Kubernetes (Kubectl commands)</strong> to manage instances.
+                  </li>
+                  <li>
+                    Contributed to <strong>Java Spring Boot</strong> application development in
+                    response to KP management's decision to use Java for future applications.
+                  </li>
+                </ul>
+
+              </dd>
+            </dl>
+          </div>
+          <div class="tab-pane" id="project2">
+            <dl>
+              <dt> Dell EMC, Round Rock, TX <span style="float:right"> Jun 17 – Jul 18 </span>
+                <br>
+                Role: Full Stack Developer
+              </dt>
+              <dd>
+                <br>
+                <ul class="job-duties">
+                  <li>
+                    Involved in the analysis, design, and development and testing phases of Software
+                    resulting in multiple stable releases and more efficient systems.
+                  </li>
+                  <li>
+                    Developed Dynamic and robust UI using <strong>React</strong>, <strong>Meteor
+                      JS</strong>, <strong>HTML</strong>, <strong>CSS</strong>,
+                    <strong>SASS</strong>, <strong>JavaScript</strong>, <strong>jQuery</strong> by
+                    connecting backend APIs with JSON.
+                  </li>
+                  <li>
+                    Used <strong>Node JS</strong>, <strong>Express JS</strong>, and <strong>Mongo
+                      DB</strong> along with <strong>Mongoose</strong> to create server-side
+                    applications.
+                  </li>
+                  <li>
+                    Worked on an <strong>Agile</strong> development team building a suite of
+                    applications.
+                  </li>
+                  <li>
+                    Developed and maintained modular, reusable, and performant <strong>React
+                      components</strong>, adhering to best practices and coding standards.
+                  </li>
+                  <li>
+                    Integrated external APIs and services into <strong>React components</strong> to
+                    fetch and display dynamic data from backend systems.
+                  </li>
+                  <li>
+                    Utilized React's "<strong>props</strong>" and "<strong>state</strong>" to manage
+                    data flow and render dynamic content in the application.
+                  </li>
+                  <li>
+                    Used markup languages like <strong>HTML</strong> and JavaScript frameworks like
+                    <strong>Meteor JS</strong> to create user-friendly web pages.
+                  </li>
+                  <li>
+                    Collaborated with back-end developers and web designers to improve usability.
+                  </li>
+                  <li>
+                    Wrote automated test scripts using <strong>Mocha</strong> framework and
+                    <strong>Chai</strong> assertion library.
+                  </li>
+                  <li>
+                    Set up the Continuous Integration/Continuous Deployment process using tools like
+                    <strong>TeamCity</strong> and <strong>Octopus</strong>.
+                  </li>
+                  <li>
+                    Created Training Mode for the website to train new users on how to use the
+                    application.
+                  </li>
+                  <li>
+                    Created smooth, interactive visualization charts using technologies like
+                    <strong>D3.js</strong>.
+                  </li>
+                  <li>
+                    Developed a data visualization project utilizing <strong>D3.js</strong> library
+                    to create interactive and dynamic visual representations of complex datasets.
+                  </li>
+                  <li>
+                    Implemented advanced <strong>D3.js</strong> features such as transitions,
+                    tooltips, and interactive behaviors to enhance user engagement and understanding
+                    of the data.
+                  </li>
+                  <li>
+                    Parsed comma delimited .csv files and storing them in <strong>Mongo DB</strong>
+                    collections.
+                  </li>
+                  <li>
+                    Ensured the responsiveness of the website using complex queries and
+                    <strong>Bootstrap</strong>.
+                  </li>
+                  <li>
+                    Created downloadable pdf's and ppt's using technologies like
+                    <strong>docxtemplater</strong>.
+                  </li>
+                  <li>
+                    Used <strong>GIT</strong> for version control. Improved the Page Performance
+                    drastically.
+                  </li>
+                  <li>
+                    Used <strong>PHP</strong> as a scripting language to develop web applications.
+                  </li>
+                  <li>
+                    Developed Restful-based web services and used <strong>JSON</strong> as the
+                    communication for REST mechanism.
+                  </li>
+                  <li>
+                    Coded <strong>Typescript</strong> and <strong>ES6</strong> supersets, mastered
+                    <strong>Docker</strong> deployment in Cloud machine instances.
+                  </li>
+                  <li>
+                    Developed & Consumed <strong>RESTful Web Services</strong>.
+                  </li>
+                  <li>
+                    Improved the Performance, Availability of an Application’s Database by using
+                    <strong>NoSQL Database</strong> such as <strong>Mongo DB</strong>.
+                  </li>
+                  <li>
+                    Deployed applications in the cloud using <strong>AWS</strong>, regulated traffic
+                    and other services using multiple <strong>AWS</strong> services.
+                  </li>
+                  <li>
+                    Successfully handled cross-browser compatibility in different browsers like
+                    Safari, Internet Explorer, Firefox, and Chrome.
+                  </li>
+                  <li>
+                    Wrote unit test cases for the JavaScript code using <strong>Mocha</strong> & the
+                    automated the application using the <strong>protractor</strong> e2e test as a
+                    part of test-driven development.
+                  </li>
+                  <li>
+                    Achieved client-side scripting which helps reduce server-side trips and thus
+                    helps in the performance boost.
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+          <div class="tab-pane" id="project3">
+            <dl>
+              <dt> Hector Systems, Laurel, MD <span style="float:right"> Dec 16 – Jun 17 </span>
+                <br>
+                Role: Web Developer
+              </dt>
+              <dd>
+                <br>
+                <ul class="job-duties">
+                  <li>Used markup languages like <strong>HTML</strong> and <strong>JavaScript</strong>
+                    frameworks to create user-friendly
+                    web pages.</li>
+                  <li>Successfully handled <strong> cross-browser compatibility</strong> in different
+                    browsers.</li>
+                  <li>Wrote unit test cases for the JavaScript code using <strong>Karma</strong>.</li>
+                  <li>Involved in upgrading the application from <strong>Angular 2 to 4</strong>.</li>
+                  <li>Used Advanced techniques of <strong>webpack 4</strong> for faster build and
+                    optimized
+                    packages.</li>
+                  <li>Designed and coded customized <strong>Angular 2</strong> services to interact
+                    with
+                    the backend API
+                    and server components.
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+          <div class="tab-pane" id="project4">
+            <dl>
+              <dt> Broadridge, Hyderabad, IND <span style="float:right"> Aug 13 – Jul 15 </span>
+                <br>
+                Role: Front End Developer
+              </dt>
+              <dd>
+                <br>
+                <ul class="job-duties">
+                  <li>Responsible for helping build a web application of the company’s platform by
+                    leveraging technologies like <strong>HTML, CSS and JavaScript</strong></li>
+                  <li>Building <strong>responsive websites</strong> using advanced media queries.</li>
+                  <li>Involved in Design and Development of the software process.</li>
+                  <li>User input validations done using JavaScript and developed use cases using UML.
+                  </li>
+                  <li>Unit testing and Regression Testing of Web Application and fixing the issues
+                    involved in development. </li>
+                  <li>Test case preparation Based on requirement Documents. Execution of test cases
+                    and
+                    Reporting bugs. </li>
+                  <li>Maintaining the <strong>Bug reports</strong> and tracking the status of the
+                    bugs.
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer my-3 py-3" style="display:block;border:solid lightgrey 1px;padding:15px">
+        <div class="row">
+          <div class="col-md-4"> Mobile Number :
+            (+1) 210-920-4308
+          </div>
+          <div class="col-md-4"> Email :
+            kumar.sharath1224 gmail.com
+          </div>
+          <div class="col-md-4"><a href="https://www.linkedin.com/in/sharath-kumar24/">LinkedIn</a></div>
+        </div>
       </div>
     </div>
   </div>
-</main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
+</div>
 
 <router-outlet></router-outlet>
